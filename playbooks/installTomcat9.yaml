@@ -57,24 +57,6 @@
           RemainAfterExit = yes
           ExecStart =/usr/local/apache-tomcat-9.0.73/bin/startup.sh
           ExecStop =/usr/local/apache-tomcat-9.0.73/bin/shutdown.sh
-          ExecReStart =/usr/local/apache-tomcat-9.0.73/bin/shutdown.sh;/usr/local/apache-tomcat-10.0.27/bin/startup.sh
-          [Install]
-          WantedBy = multi-user.target
-    - name: chmod 755 tomcat.service
-      file:
-        path: /etc/systemd/system/tomcat.service
-        mode:  0755
-    - name: start tomcat
-      systemd:
-        name: tomcat.service
-        state: started
-        daemon_reload: yes
-        enabled: yes
-          Type = oneshot
-          PIDFile =/usr/local/apache-tomcat-9.0.73/tomcat.pid
-          RemainAfterExit = yes
-          ExecStart =/usr/local/apache-tomcat-9.0.73/bin/startup.sh
-          ExecStop =/usr/local/apache-tomcat-9.0.73/bin/shutdown.sh
           ExecReStart =/usr/local/apache-tomcat-9.0.73/bin/shutdown.sh;/usr/local/apache-tomcat-9.0.73/bin/startup.sh
           [Install]
           WantedBy = multi-user.target
